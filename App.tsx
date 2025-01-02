@@ -6,7 +6,7 @@ import {SafeAreaView} from 'react-native';
 const App = () => {
   return (
     <NavigationContainer>
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, padding: 0, margin: 0}}>
         <AppNavigation />
       </SafeAreaView>
     </NavigationContainer>

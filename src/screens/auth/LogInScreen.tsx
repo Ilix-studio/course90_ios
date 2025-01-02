@@ -1,4 +1,11 @@
-import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  KeyboardAvoidingView,
+} from 'react-native';
 import React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import {} from '@react-navigation/elements';
@@ -17,7 +24,7 @@ const LogInScreen: React.FC = () => {
         }}
       />
       <Text style={styles.welcomeText}>Welcome to course90</Text>
-      <View style={styles.form}>
+      <KeyboardAvoidingView behavior="padding" style={styles.form}>
         <Text style={styles.label}>Please enter the passkey</Text>
         <TextInput
           style={styles.passkeyInput}
@@ -27,7 +34,7 @@ const LogInScreen: React.FC = () => {
         <TouchableOpacity style={styles.buttonLogin} onPress={() => {}}>
           <Text style={styles.buttonTextt}>Login to continue...</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };

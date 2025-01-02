@@ -5,11 +5,12 @@ import RootStackParamList from './RootStackParamList';
 import HomeScreen from '../screens/main/HomeScreen';
 import WelcomeScreen from '../screens/auth/WelcomeScreen';
 import LogInScreen from '../screens/auth/LogInScreen';
+import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function AppNavigation() {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {!isAuthenticated ? (
@@ -19,7 +20,7 @@ export default function AppNavigation() {
         </>
       ) : (
         <>
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="Home" component={TabNavigator} />
         </>
       )}
     </Stack.Navigator>

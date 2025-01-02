@@ -1,5 +1,5 @@
 type RootStackParamList = {
-  HomeScreen: undefined;
+  Home: undefined;
   Welcome: undefined;
   LogInScreen: undefined;
 };
