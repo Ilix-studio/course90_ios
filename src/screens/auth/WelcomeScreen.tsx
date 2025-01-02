@@ -1,11 +1,4 @@
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {useState, useRef} from 'react';
 import Swiper from 'react-native-swiper';
 import WSButton from '../../components/WSButton';
