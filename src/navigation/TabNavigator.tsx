@@ -11,14 +11,22 @@ const Tab = createBottomTabNavigator();
 
 const TabIcon = ({
   source,
+  color,
+
+  focused,
 }: {
   source: ImageSourcePropType;
   focused: boolean;
-  size: number;
+  color: string;
 }) => {
   return (
-    <View style={styles.icon}>
-      <Image source={source} tintColor="white" />
+    <View style={styles.tabIconView}>
+      <Image
+        source={source}
+        tintColor={color}
+        style={styles.tabiconsimg}
+        resizeMode="contain"
+      />
     </View>
   );
 };
@@ -29,25 +37,29 @@ const TabNavigator: React.FC = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+
         tabBarActiveTintColor: '#629584',
+        tabBarInactiveTintColor: '#CDCDE0',
         tabBarStyle: {
           backgroundColor: '#181818',
-          position: 'absolute',
           borderTopWidth: 1,
+          position: 'absolute',
           borderTopColor: '#232533',
-          height: 55,
-          paddingBottom: 9,
+          height: 84,
         },
       }}>
       <Tab.Screen
         name="Home"
         component={HomeTab}
         options={{
-          tabBarLabel: 'Home',
           headerShown: false,
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({color, focused}) => {
             return (
-              <TabIcon source={icons.homeTabLogo} focused={focused} size={30} />
+              <TabIcon
+                source={icons.homeTabLogo}
+                focused={focused}
+                color={color}
+              />
             );
           },
         }}
@@ -56,10 +68,13 @@ const TabNavigator: React.FC = () => {
         name="CareerAI"
         component={CareerAITab}
         options={{
-          tabBarLabel: 'Career AI',
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({color, focused}) => {
             return (
-              <TabIcon source={icons.microchipAI} focused={focused} size={30} />
+              <TabIcon
+                source={icons.microchipAI}
+                focused={focused}
+                color={color}
+              />
             );
           },
         }}
@@ -68,13 +83,12 @@ const TabNavigator: React.FC = () => {
         name="Performance"
         component={PerformanceTab}
         options={{
-          tabBarLabel: 'Performance',
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({color, focused}) => {
             return (
               <TabIcon
                 source={icons.chartPyramid}
                 focused={focused}
-                size={30}
+                color={color}
               />
             );
           },
@@ -88,7 +102,14 @@ const TabNavigator: React.FC = () => {
 export default TabNavigator;
 
 const styles = StyleSheet.create({
-  icon: {
-    flexDirection: 'column',
+  tabIconView: {
+    flex: 1,
+    paddingTop: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tabiconsimg: {
+    width: 24,
+    height: 24,
   },
 });
