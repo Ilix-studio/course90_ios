@@ -37,7 +37,6 @@ const TabNavigator: React.FC = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-
         tabBarActiveTintColor: '#629584',
         tabBarInactiveTintColor: '#CDCDE0',
         tabBarStyle: {
@@ -64,21 +63,7 @@ const TabNavigator: React.FC = () => {
           },
         }}
       />
-      <Tab.Screen
-        name="CareerAI"
-        component={CareerAITab}
-        options={{
-          tabBarIcon: ({color, focused}) => {
-            return (
-              <TabIcon
-                source={icons.microchipAI}
-                focused={focused}
-                color={color}
-              />
-            );
-          },
-        }}
-      />
+
       <Tab.Screen
         name="Performance"
         component={PerformanceTab}

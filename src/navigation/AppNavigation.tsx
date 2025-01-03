@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import RootStackParamList from './RootStackParamList';
-import HomeScreen from '../screens/main/HomeScreen';
 import WelcomeScreen from '../screens/auth/WelcomeScreen';
 import LogInScreen from '../screens/auth/LogInScreen';
 import TabNavigator from './TabNavigator';

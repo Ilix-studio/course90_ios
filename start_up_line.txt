@@ -1,1 +1,6 @@
 npx react-native run-ios
+['#243642', '#2b436a', '#243642'] - Dark Theme
+#7df9ad - Green 
+#4e5ae2 - Colored Blue
+#243642 - Greenish black
+
