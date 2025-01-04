@@ -2,7 +2,7 @@ import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeTab from '../screens/tabs/HomeTab';
-import CareerAITab from '../screens/tabs/CareerAITab';
+
 import PerformanceTab from '../screens/tabs/PerformanceTab';
 
 import {icons} from '../../constants';
