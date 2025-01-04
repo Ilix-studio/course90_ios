@@ -1,17 +1,12 @@
-import {
-  Dimensions,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {Dimensions, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+
 import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
 import TopicsListG, {topicsData} from '../../components/general/TropicsListG';
 import {TopicG} from '../../components/general/TropicCardG';
 import TopicsListM from '../../components/mock/TropicsListM';
 import {TopicM} from '../../components/mock/TropicCardM';
+import {ICONS} from '../../../constants';
 
 const {width} = Dimensions.get('window');
 
@@ -32,14 +27,14 @@ const HomeTab = () => {
       <SafeAreaView>
         <View style={styles.header}>
           <View style={styles.headerPartOne}>
-            <Text style={styles.greeting}>Hello,</Text>
-            <TextInput style={styles.input} placeholder="Type name" />
+            <Text style={styles.greeting}>Course90</Text>
           </View>
-          <View style={styles.profileCircle}></View>
+          <ICONS.CircleUserRound size={24} style={styles.profileCircle} />
         </View>
         {/* Generat Text  */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>General Test</Text>
+
           <TopicsListG data={topicsData} onTopicPress={handleTopicPressG} />
         </View>
         {/* Mock Text  */}
@@ -48,9 +43,19 @@ const HomeTab = () => {
           <TopicsListM data={topicsData} onTopicPress={handleTopicPressM} />
         </View>
         {/* Mini Nots  */}
-
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Mini Notes</Text>
+          <View style={styles.miniFlex}>
+            <View style={styles.topicBoxx}>
+              <Text>Accessibility</Text>
+            </View>
+            <View style={styles.topicBoxx}>
+              <Text>Accessibility</Text>
+            </View>
+            <View style={styles.topicBoxx}>
+              <Text>Accessibility</Text>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#ccc',
     marginLeft: 8,
+    marginRight: 8,
   },
   //Flatlist
   section: {
@@ -102,16 +108,21 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     color: '#F8FAFC',
   },
-  topicBox: {
-    width: width * 0.8,
-    height: 150, // Adjust width for the carousel item
+  miniFlex: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  topicBoxx: {
+    width: width * 0.9,
+    height: 50, // Adjust width for the carousel item
     marginHorizontal: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 8,
+    borderRadius: 20,
     padding: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#789DBC',
   },
   topicText: {
     fontSize: 16,

@@ -11,7 +11,10 @@ export const COLORS = {
   },
   text: {
     primary: '#F8FAFC',
-    secondary: '#F2F9FF',
+    secondary: '#243642',
   },
   border: '#ccc',
 };
+
+import {CircleUserRound} from 'lucide-react-native';
+export const ICONS = {CircleUserRound};

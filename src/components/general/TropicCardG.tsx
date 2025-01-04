@@ -1,11 +1,13 @@
 import {Dimensions, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../../constants';
+import LinearGradient from 'react-native-linear-gradient';
 const {width} = Dimensions.get('window');
 
 export interface TopicG {
   id: string;
   title: string;
+  totalQ: string;
 }
 
 interface TopicCardPropsG {
@@ -17,6 +19,7 @@ const TopicCardG: React.FC<TopicCardPropsG> = ({item, onPress}) => {
   return (
     <TouchableOpacity style={styles.topicBox} onPress={onPress}>
       <Text style={styles.topicText}>{item.title}</Text>
+      <Text style={styles.totalQ}>{item.totalQ}</Text>
     </TouchableOpacity>
   );
 };
@@ -30,12 +33,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderWidth: 1,
     borderColor: COLORS.border,
-    borderRadius: 8,
+    borderRadius: 29,
     padding: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    backgroundColor: '#7df9ad',
   },
   topicText: {
+    fontSize: 16,
+    color: COLORS.text.secondary,
+  },
+  totalQ: {
     fontSize: 16,
     color: COLORS.text.secondary,
   },
