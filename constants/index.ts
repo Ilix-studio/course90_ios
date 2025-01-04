@@ -18,3 +18,8 @@ export const COLORS = {
 
 import {CircleUserRound} from 'lucide-react-native';
 export const ICONS = {CircleUserRound};
+
+import Raleway from '../assets/fonts/Raleway.ttf';
+import LeagueSpartan from '../assets/fonts/LeagueSpartan.ttf';
+
+export const FONTS = {Raleway, LeagueSpartan};

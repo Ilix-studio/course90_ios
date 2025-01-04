@@ -6,17 +6,15 @@ import TopicsListG, {topicsData} from '../../components/general/TropicsListG';
 import {TopicG} from '../../components/general/TropicCardG';
 import TopicsListM from '../../components/mock/TropicsListM';
 import {TopicM} from '../../components/mock/TropicCardM';
-import {ICONS} from '../../../constants';
+import {FONTS, ICONS} from '../../../constants';
 
 const {width} = Dimensions.get('window');
 
 const HomeTab = () => {
   const handleTopicPressG = (topic: TopicG) => {
-    // Handle topic press
     console.log('Topic pressed:', topic);
   };
   const handleTopicPressM = (topic: TopicM) => {
-    // Handle topic press
     console.log('Topic pressed:', topic);
   };
 
@@ -31,17 +29,6 @@ const HomeTab = () => {
           </View>
           <ICONS.CircleUserRound size={24} style={styles.profileCircle} />
         </View>
-        {/* Generat Text  */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>General Test</Text>
-
-          <TopicsListG data={topicsData} onTopicPress={handleTopicPressG} />
-        </View>
-        {/* Mock Text  */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Mock Test</Text>
-          <TopicsListM data={topicsData} onTopicPress={handleTopicPressM} />
-        </View>
         {/* Mini Nots  */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Mini Notes</Text>
@@ -55,7 +42,20 @@ const HomeTab = () => {
             <View style={styles.topicBoxx}>
               <Text>Accessibility</Text>
             </View>
+            <View style={styles.topicBoxx}>
+              <Text>Accessibility</Text>
+            </View>
           </View>
+        </View>
+        {/* Generat Text  */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>General Test</Text>
+          <TopicsListG data={topicsData} onTopicPress={handleTopicPressG} />
+        </View>
+        {/* Mock Text  */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Mock Test</Text>
+          <TopicsListM data={topicsData} onTopicPress={handleTopicPressM} />
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   },
   headerPartOne: {flexDirection: 'row', alignItems: 'center'},
   greeting: {
+    fontFamily: FONTS.Raleway,
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 8,
@@ -102,26 +103,24 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 8,
     paddingLeft: 8,
     color: '#F8FAFC',
   },
   miniFlex: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
     gap: 10,
   },
   topicBoxx: {
-    width: width * 0.9,
-    height: 50, // Adjust width for the carousel item
-    marginHorizontal: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    width: width * 0.4,
+    height: 70, // Adjust width for the carousel item
+    marginHorizontal: 5,
     borderRadius: 20,
-    padding: 16,
+    padding: 12,
     backgroundColor: '#789DBC',
   },
   topicText: {

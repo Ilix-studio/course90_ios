@@ -12,8 +12,6 @@ const Tab = createBottomTabNavigator();
 const TabIcon = ({
   source,
   color,
-
-  focused,
 }: {
   source: ImageSourcePropType;
   focused: boolean;
