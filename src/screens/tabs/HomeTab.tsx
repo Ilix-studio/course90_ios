@@ -1,33 +1,30 @@
 import {
   Dimensions,
-  FlatList,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
+import TopicsListG, {topicsData} from '../../components/general/TropicsListG';
+import {TopicG} from '../../components/general/TropicCardG';
+import TopicsListM from '../../components/mock/TropicsListM';
+import {TopicM} from '../../components/mock/TropicCardM';
 
 const {width} = Dimensions.get('window');
 
 const HomeTab = () => {
-  const data = [
-    {id: '1', title: 'Topic 1'},
-    {id: '2', title: 'Topic 2'},
-    {id: '3', title: 'Topic 3'},
-    {id: '4', title: 'Topic 4'},
-    {id: '5', title: 'Topic 5'},
-  ];
+  const handleTopicPressG = (topic: TopicG) => {
+    // Handle topic press
+    console.log('Topic pressed:', topic);
+  };
+  const handleTopicPressM = (topic: TopicM) => {
+    // Handle topic press
+    console.log('Topic pressed:', topic);
+  };
 
-  const renderItem = ({item}: {item: {id: string; title: string}}) => (
-    <TouchableOpacity style={styles.topicBox}>
-      <Text style={styles.topicText}>{item.title}</Text>
-    </TouchableOpacity>
-  );
   return (
     <LinearGradient
       colors={['#243642', '#2b436a', '#243642']}
@@ -43,28 +40,12 @@ const HomeTab = () => {
         {/* Generat Text  */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>General Test</Text>
-          <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.carousel}
-            pagingEnabled
-          />
+          <TopicsListG data={topicsData} onTopicPress={handleTopicPressG} />
         </View>
         {/* Mock Text  */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Mock Test</Text>
-          <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.carousel}
-            pagingEnabled
-          />
+          <TopicsListM data={topicsData} onTopicPress={handleTopicPressM} />
         </View>
         {/* Mini Nots  */}
 
