@@ -12,11 +12,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		595BDE192B1D48318E1FEB06 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2956B9DED604818BA06B1A8 /* Raleway.ttf */; };
+		6819897805DB4EC595949D5B /* LeagueSpartan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99AC9F74A56F42ECA056270B /* LeagueSpartan.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-course90-course90Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-course90-course90Tests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		954D41F52B0380AFDC35C47C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		6819897805DB4EC595949D5B /* LeagueSpartan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99AC9F74A56F42ECA056270B /* LeagueSpartan.ttf */; };
-		595BDE192B1D48318E1FEB06 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2956B9DED604818BA06B1A8 /* Raleway.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +47,9 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-course90.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-course90.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = course90/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-course90-course90Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-course90-course90Tests.release.xcconfig"; path = "Target Support Files/Pods-course90-course90Tests/Pods-course90-course90Tests.release.xcconfig"; sourceTree = "<group>"; };
+		99AC9F74A56F42ECA056270B /* LeagueSpartan.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = LeagueSpartan.ttf; path = ../assets/fonts/LeagueSpartan.ttf; sourceTree = "<group>"; };
+		E2956B9DED604818BA06B1A8 /* Raleway.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Raleway.ttf; path = ../assets/fonts/Raleway.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		99AC9F74A56F42ECA056270B /* LeagueSpartan.ttf */ = {isa = PBXFileReference; name = "LeagueSpartan.ttf"; path = "../assets/fonts/LeagueSpartan.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E2956B9DED604818BA06B1A8 /* Raleway.ttf */ = {isa = PBXFileReference; name = "Raleway.ttf"; path = "../assets/fonts/Raleway.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

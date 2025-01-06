@@ -1,7 +1,6 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import React from 'react';
 import TopicCardG, {TopicG} from './TropicCardG';
-import LinearGradient from 'react-native-linear-gradient';
 
 interface TopicsListPropsG {
   data: TopicG[];
@@ -35,6 +34,6 @@ export default TopicsListG;
 
 const styles = StyleSheet.create({
   carousel: {
-    paddingVertical: 16,
+    paddingVertical: 3,
   },
 });

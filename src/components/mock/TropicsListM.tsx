@@ -35,6 +35,6 @@ export default TopicsListM;
 
 const styles = StyleSheet.create({
   carousel: {
-    paddingVertical: 16,
+    paddingVertical: 3,
   },
 });
