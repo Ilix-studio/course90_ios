@@ -5,6 +5,7 @@ import RootStackParamList from './RootStackParamList';
 import WelcomeScreen from '../screens/auth/WelcomeScreen';
 import LogInScreen from '../screens/auth/LogInScreen';
 import TabNavigator from './TabNavigator';
+import ProfileScreen from '../screens/main/ProfileScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -19,7 +20,8 @@ export default function AppNavigation() {
         </>
       ) : (
         <>
-          <Stack.Screen name="Home" component={TabNavigator} />
+          <Stack.Screen name="HomeScreen" component={TabNavigator} />
+          <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         </>
       )}
     </Stack.Navigator>

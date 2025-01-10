@@ -6,6 +6,7 @@ import HomeTab from '../screens/tabs/HomeTab';
 import PerformanceTab from '../screens/tabs/PerformanceTab';
 
 import {icons} from '../../constants';
+import CareerAITab from '../screens/tabs/CareerAITab';
 
 const Tab = createBottomTabNavigator();
 
@@ -76,6 +77,21 @@ const TabNavigator: React.FC = () => {
             );
           },
           tabBarBadge: 3,
+        }}
+      />
+      <Tab.Screen
+        name="Basic-AI"
+        component={CareerAITab}
+        options={{
+          tabBarIcon: ({color, focused}) => {
+            return (
+              <TabIcon
+                source={icons.microchipAI}
+                focused={focused}
+                color={color}
+              />
+            );
+          },
         }}
       />
     </Tab.Navigator>

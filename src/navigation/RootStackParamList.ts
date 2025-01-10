@@ -1,6 +1,7 @@
 type RootStackParamList = {
-  Home: undefined;
   Welcome: undefined;
   LogInScreen: undefined;
+  HomeScreen: undefined;
+  ProfileScreen: undefined;
 };
 export default RootStackParamList;
