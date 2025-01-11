@@ -9,11 +9,14 @@ import ProfileScreen from '../screens/main/ProfileScreen';
 import SeeAllGT from '../screens/main/SeeAllGT';
 import SeeAllMT from '../screens/main/SeeAllMT';
 import SeeAllMini from '../screens/main/SeeAllMini';
+import TestScreenGT from '../screens/main/TestScreen/TestScreenGT';
+import TestScreenMT from '../screens/main/TestScreen/TestScreenMT';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function AppNavigation() {
   const isAuthenticated = true;
+
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {!isAuthenticated ? (
@@ -28,6 +31,8 @@ export default function AppNavigation() {
           <Stack.Screen name="SeeAllGT" component={SeeAllGT} />
           <Stack.Screen name="SeeAllMT" component={SeeAllMT} />
           <Stack.Screen name="SeeAllMini" component={SeeAllMini} />
+          <Stack.Screen name="TestScreenGT" component={TestScreenGT} />
+          <Stack.Screen name="TestScreenMT" component={TestScreenMT} />
         </>
       )}
     </Stack.Navigator>

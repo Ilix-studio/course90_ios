@@ -26,6 +26,7 @@ const HomeTab = () => {
   const scrollY = useRef(new Animated.Value(0)).current;
   const handleTopicPressG = (topic: TopicG) => {
     console.log('Topic pressed:', topic);
+    navigation.navigate('TestScreenGT');
   };
   const handleTopicPressM = (topic: TopicM) => {
     console.log('Topic pressed:', topic);
@@ -36,6 +37,7 @@ const HomeTab = () => {
   const handlePressSeeMT = () => {
     navigation.navigate('SeeAllMT'); // Replace 'NewComponent' with your route name
   };
+
   const navigation = useNavigation<NavigationProps>();
   return (
     <View style={styles.container}>
