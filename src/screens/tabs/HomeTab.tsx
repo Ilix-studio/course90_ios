@@ -11,12 +11,12 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import React, {useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import TopicsListG, {topicsData} from '../../components/general/TropicsListG';
-import {TopicG} from '../../components/general/TropicCardG';
-import TopicsListM from '../../components/mock/TropicsListM';
-import {TopicM} from '../../components/mock/TropicCardM';
+import TopicsListG, {topicsData} from '../../components/general/TopicsListG';
+import {TopicG} from '../../components/general/TopicCardG';
+import TopicsListM from '../../components/mock/TopicsListM';
+import {TopicM} from '../../components/mock/TopicCardM';
 import {ICONS} from '../../../constants';
-import {Notebook} from 'lucide-react-native';
+import {Notebook, ChevronRight} from 'lucide-react-native';
 
 type NavigationProps = {
   navigate: (screen: string) => void;
@@ -29,6 +29,12 @@ const HomeTab = () => {
   };
   const handleTopicPressM = (topic: TopicM) => {
     console.log('Topic pressed:', topic);
+  };
+  const handlePressSeeGT = () => {
+    navigation.navigate('SeeAllGT'); // Replace 'NewComponent' with your route name
+  };
+  const handlePressSeeMT = () => {
+    navigation.navigate('SeeAllMT'); // Replace 'NewComponent' with your route name
   };
   const navigation = useNavigation<NavigationProps>();
   return (
@@ -87,13 +93,29 @@ const HomeTab = () => {
 
           {/* General Test  */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>General Test</Text>
+            <View style={styles.twoSide}>
+              <Text style={styles.sectionTitle}>General Test</Text>
+              <Pressable
+                style={styles.sectionSeeAll}
+                onPress={handlePressSeeGT}>
+                <Text style={styles.seeAllText}>See All</Text>
+                <ChevronRight size={24} color="#888" />
+              </Pressable>
+            </View>
             <TopicsListG data={topicsData} onTopicPress={handleTopicPressG} />
           </View>
 
           {/* Mock Test  */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Mock Test</Text>
+            <View style={styles.twoSide}>
+              <Text style={styles.sectionTitle}>Mock Test</Text>
+              <Pressable
+                style={styles.sectionSeeAll}
+                onPress={handlePressSeeMT}>
+                <Text style={styles.seeAllText}>See All</Text>
+                <ChevronRight size={24} color="#888" />
+              </Pressable>
+            </View>
             <TopicsListM data={topicsData} onTopicPress={handleTopicPressM} />
           </View>
           <View style={styles.space}></View>
@@ -203,6 +225,21 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     paddingLeft: 8,
     color: '#F8FAFC',
+  },
+  twoSide: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center', // ensures vertical alignment
+    // other styles if needed
+  },
+  sectionSeeAll: {
+    fontSize: 14,
+    flexDirection: 'row',
+    alignItems: 'center', // Centers the text and icon vertically
+  },
+  seeAllText: {
+    color: '#D1D4C9',
+    marginRight: 5, // Adds spacing between text and icon
   },
   space: {
     paddingVertical: 26,

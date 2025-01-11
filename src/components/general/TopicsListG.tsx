@@ -1,6 +1,6 @@
 import {FlatList, StyleSheet} from 'react-native';
 import React from 'react';
-import TopicCardG, {TopicG} from './TropicCardG';
+import TopicCardG, {TopicG} from './TopicCardG';
 
 interface TopicsListPropsG {
   data: TopicG[];

@@ -1,6 +1,6 @@
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import TopicCardM, {TopicM} from './TropicCardM';
+import TopicCardM, {TopicM} from './TopicCardM';
 
 interface TopicsListPropsM {
   data: TopicM[];
