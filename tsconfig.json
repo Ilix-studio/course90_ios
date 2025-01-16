@@ -9,5 +9,12 @@
       "@assets/*": ["assets/*"]
     }
   },
-  "include": ["src/**/*", "assets/**/*", "types/**/*", "**/*.ttf", "**/*.d.ts"]
+  "include": [
+    "src/**/*",
+    "assets/**/*",
+    "types/**/*",
+    "**/*.ttf",
+    "**/*.d.ts",
+    "AppInitializer.tsx"
+  ]
 }
