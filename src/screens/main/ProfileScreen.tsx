@@ -1,4 +1,5 @@
 import {
+  Alert,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -8,6 +9,10 @@ import {
 } from 'react-native';
 import React from 'react';
 import {ChevronLeft, ChevronRight} from 'lucide-react-native';
+import {useDispatch} from 'react-redux';
+import {clearPasskey} from '../../redux-store/slices/authSlice';
+import {useNavigation} from '@react-navigation/native';
+import {HomeScreenNavigationProp} from '../../navigation/RootStackParamList';
 
 interface MenuItemProps {
   title: string;
@@ -28,6 +33,8 @@ const MenuItem: React.FC<MenuItemProps> = ({title, onPress, icon}) => (
 );
 
 const ProfileScreen: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   const handleBackPress = () => {
     // Handle navigation back
     console.log('Back pressed');
@@ -35,6 +42,38 @@ const ProfileScreen: React.FC = () => {
 
   const handleMenuItemPress = (item: string) => {
     console.log(`${item} pressed`);
+  };
+  const handleMenuItemLogout = (item: string) => {
+    if (item === 'Logout') {
+      // Handle logout
+      Alert.alert(
+        'Logout',
+        'Are you sure you want to logout?',
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
+          },
+          {
+            text: 'Logout',
+            onPress: async () => {
+              try {
+                // Clear passkey from Redux store
+                dispatch(clearPasskey());
+                // Show success message
+                Alert.alert('Success', 'Logged out successfully!');
+              } catch (error) {
+                console.error('Logout failed:', error);
+                Alert.alert('Error', 'Failed to logout. Please try again.');
+              }
+            },
+          },
+        ],
+        {cancelable: false},
+      );
+    } else {
+      console.log(`${item} pressed`);
+    }
   };
 
   return (
@@ -70,6 +109,10 @@ const ProfileScreen: React.FC = () => {
         <MenuItem
           title="Profile switch"
           onPress={() => handleMenuItemPress('Profile switch')}
+        />
+        <MenuItem
+          title="Logout"
+          onPress={() => handleMenuItemLogout('Logout')}
         />
       </View>
     </SafeAreaView>

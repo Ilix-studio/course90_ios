@@ -11,11 +11,16 @@ import SeeAllMT from '../screens/main/SeeAllMT';
 import SeeAllMini from '../screens/main/SeeAllMini';
 import TestScreenGT from '../screens/main/TestScreen/TestScreenGT';
 import TestScreenMT from '../screens/main/TestScreen/TestScreenMT';
+import {useSelector} from 'react-redux';
+import {RootState} from 'redux-store/store';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function AppNavigation() {
-  const isAuthenticated = true;
+  // Get authentication state from Redux store
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated,
+  );
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>

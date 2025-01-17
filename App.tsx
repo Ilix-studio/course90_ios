@@ -2,17 +2,18 @@ import {NavigationContainer} from '@react-navigation/native';
 import AppNavigation from './src/navigation/AppNavigation';
 import React from 'react';
 import {Provider} from 'react-redux';
-import AppInitializer from './AppInitializer';
-import {store} from './src/redux-store/store';
+
+import {store, persistor} from './src/redux-store/store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <AppInitializer>
+      <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <AppNavigation />
         </NavigationContainer>
-      </AppInitializer>
+      </PersistGate>
     </Provider>
   );
 };
