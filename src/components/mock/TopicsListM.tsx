@@ -1,7 +1,9 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import TopicCardM, {TopicM} from './TopicCardM';
 
+// Add this line to get the screen width
+const {width} = Dimensions.get('window');
 interface TopicsListPropsM {
   data: TopicM[];
   onTopicPress?: (topic: TopicM) => void;
@@ -26,7 +28,12 @@ const TopicsListM: React.FC<TopicsListPropsM> = ({data, onTopicPress}) => {
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.carousel}
-      pagingEnabled
+      ItemSeparatorComponent={() => <View style={{width: 15}} />}
+      // Better snap behavior than pagingEnabled
+      snapToAlignment="center"
+      decelerationRate="fast"
+      // Calculate snap interval based on card width plus separator
+      snapToInterval={width * 0.8 + 15}
     />
   );
 };

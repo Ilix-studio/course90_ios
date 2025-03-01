@@ -4,3 +4,4 @@ npx react-native run-ios
 #4e5ae2 - Colored Blue
 #243642 - Greenish black
 
+auth

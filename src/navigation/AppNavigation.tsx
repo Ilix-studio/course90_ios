@@ -18,9 +18,10 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export default function AppNavigation() {
   // Get authentication state from Redux store
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.auth.isAuthenticated,
-  );
+  const isAuthenticated = true;
+  // const isAuthenticated = useSelector(
+  //   (state: RootState) => state.auth.isAuthenticated,
+  // );
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>

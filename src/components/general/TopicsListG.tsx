@@ -1,6 +1,7 @@
-import {FlatList, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, StyleSheet, View} from 'react-native';
 import React from 'react';
 import TopicCardG, {TopicG} from './TopicCardG';
+import {spacing, screenWidth} from '../../../utils/dimensions';
 
 interface TopicsListPropsG {
   data: TopicG[];
@@ -25,7 +26,12 @@ const TopicsListG: React.FC<TopicsListPropsG> = ({data, onTopicPress}) => {
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.carousel}
-      pagingEnabled
+      ItemSeparatorComponent={() => <View style={{width: 15}} />}
+      // Better snap behavior than pagingEnabled
+      snapToAlignment="center"
+      decelerationRate="fast"
+      // Calculate snap interval based on card width plus separator
+      snapToInterval={screenWidth * 0.8 + spacing.md}
     />
   );
 };
@@ -34,6 +40,6 @@ export default TopicsListG;
 
 const styles = StyleSheet.create({
   carousel: {
-    paddingVertical: 3,
+    paddingVertical: spacing.sm,
   },
 });

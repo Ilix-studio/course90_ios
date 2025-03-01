@@ -1,9 +1,9 @@
-import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
 import LinearGradient from 'react-native-linear-gradient';
 import Svg, {Path} from 'react-native-svg';
-const {width} = Dimensions.get('window');
+import {normalize, spacing, screenWidth} from '../../../utils/dimensions';
 
 export interface TopicG {
   id: string;
@@ -21,11 +21,11 @@ const TopicCardG: React.FC<TopicCardPropsG> = ({item, onPress}) => {
     <LinearGradient
       colors={['#453a94', '#f43b47']}
       style={{
-        width: width * 0.8,
-        borderRadius: 16,
+        width: screenWidth * 0.8,
+        borderRadius: normalize(16),
         padding: 20,
         position: 'relative',
-        minHeight: 200,
+        minHeight: normalize(200),
       }}>
       <Svg
         height="100%"
