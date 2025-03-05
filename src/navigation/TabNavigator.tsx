@@ -1,4 +1,11 @@
-import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeTab from '../screens/tabs/HomeTab';
@@ -42,8 +49,8 @@ const TabNavigator: React.FC = () => {
           backgroundColor: '#181818',
           borderTopWidth: 1,
           position: 'absolute',
-          borderTopColor: '#232533',
-          height: 84,
+          borderTopColor: '#181818',
+          height: Platform.OS === 'ios' ? 84 : 64,
         },
       }}>
       <Tab.Screen

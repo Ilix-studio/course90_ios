@@ -1,5 +1,6 @@
 import {
   Animated,
+  Platform,
   Pressable,
   SafeAreaView,
   StyleSheet,
@@ -17,6 +18,13 @@ import TopicsListM from '../../components/mock/TopicsListM';
 import {TopicM} from '../../components/mock/TopicCardM';
 import {ICONS} from '../../../constants';
 import {Notebook, ChevronRight} from 'lucide-react-native';
+import {
+  normalize,
+  spacing,
+  fontSizes,
+  screenWidth,
+  screenHeight,
+} from '../../../utils/dimensions';
 
 type NavigationProps = {
   navigate: (screen: string) => void;
@@ -142,12 +150,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#152A38',
   },
-  //company name and user profile
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 3,
-    padding: 8,
+    marginBottom: spacing.xs,
+    padding: spacing.sm,
     justifyContent: 'space-between',
   },
   headerPartOne: {
@@ -156,26 +163,26 @@ const styles = StyleSheet.create({
   },
   companyName: {
     fontFamily: 'LeagueSpartan',
-    fontSize: 18,
+    fontSize: fontSizes.lg,
     fontWeight: 'bold',
-    marginRight: 8,
+    marginRight: spacing.sm,
     color: '#F8FAFC',
   },
   profileCircle: {
-    width: 35,
-    height: 30,
-    borderRadius: 20,
+    width: normalize(35),
+    height: normalize(30),
+    borderRadius: normalize(20),
     backgroundColor: '#ccc',
-    marginLeft: 8,
-    marginRight: 8,
+    marginLeft: spacing.sm,
+    marginRight: spacing.sm,
   },
   text_container: {
-    marginVertical: 48,
-    gap: 8,
+    marginVertical: normalize(48),
+    gap: spacing.sm,
   },
   instituteText: {
-    marginHorizontal: 16,
-    fontSize: 20,
+    marginHorizontal: spacing.md,
+    fontSize: fontSizes.xl,
     fontWeight: 500,
     color: '#ffffff',
     fontFamily: 'Oswald',
@@ -184,8 +191,8 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   courseText: {
-    marginHorizontal: 16,
-    fontSize: 20,
+    marginHorizontal: spacing.md,
+    fontSize: fontSizes.xl,
     fontWeight: '500',
     color: '#ffffff',
   },
@@ -193,9 +200,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
-    borderRadius: 10,
-    height: 170,
+    padding: spacing.md,
+    borderRadius: normalize(10),
+    height: normalize(170),
+    marginHorizontal: Platform.OS === 'android' ? spacing.sm : 0,
   },
   leftSection: {
     flexDirection: 'row',
@@ -203,50 +211,49 @@ const styles = StyleSheet.create({
   },
   iconText: {
     color: '#fff',
-    marginLeft: 8,
-    fontSize: 16,
+    marginLeft: spacing.sm,
+    fontSize: fontSizes.md,
     fontWeight: '500',
   },
   button: {
     backgroundColor: '#ff6f61',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+    borderRadius: normalize(8),
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: fontSizes.md,
     fontWeight: '600',
   },
   section: {
-    marginBottom: 16,
+    marginBottom: spacing.md,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: fontSizes.md,
     fontWeight: 'bold',
-    marginBottom: 8,
-    paddingLeft: 8,
+    marginBottom: spacing.sm,
+    paddingLeft: spacing.sm,
     color: '#F8FAFC',
   },
   twoSide: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center', // ensures vertical alignment
-    // other styles if needed
+    alignItems: 'center',
   },
   sectionSeeAll: {
-    fontSize: 14,
+    fontSize: fontSizes.sm,
     flexDirection: 'row',
-    alignItems: 'center', // Centers the text and icon vertically
+    alignItems: 'center',
   },
   seeAllText: {
     color: '#D1D4C9',
-    marginRight: 5, // Adds spacing between text and icon
+    marginRight: spacing.xs,
   },
   space: {
-    paddingVertical: 26,
+    paddingVertical: normalize(26),
   },
   carousel: {
-    paddingVertical: 16,
+    paddingVertical: spacing.md,
   },
 });
