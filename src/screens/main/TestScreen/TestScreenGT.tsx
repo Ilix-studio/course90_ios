@@ -6,17 +6,11 @@ import {
   StyleSheet,
   SafeAreaView,
   StatusBar,
-  Dimensions,
   Platform,
 } from 'react-native';
-import {
-  normalize,
-  spacing,
-  screenWidth,
-  fontSizes,
-} from '../../../../utils/dimensions';
+import {normalize, spacing, fontSizes} from '../../../../utils/dimensions';
 
-const QuizScreen = () => {
+const QuizScreen: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState(
     'Being In A Relationship',
   );
