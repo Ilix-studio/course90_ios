@@ -104,7 +104,7 @@ const HomeTab = () => {
           {/* General Test  */}
           <View style={styles.section}>
             <View style={styles.twoSide}>
-              <Text style={styles.sectionTitle}>General Test</Text>
+              <Text style={styles.sectionTitle}>Regular Test</Text>
               <Pressable
                 style={styles.sectionSeeAll}
                 onPress={handlePressSeeGT}>

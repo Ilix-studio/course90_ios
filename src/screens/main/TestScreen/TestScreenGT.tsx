@@ -9,6 +9,7 @@ import {
   Platform,
 } from 'react-native';
 import {normalize, spacing, fontSizes} from '../../../../utils/dimensions';
+import {ArrowLeft} from 'lucide-react-native';
 
 const QuizScreen: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState(
@@ -29,7 +30,9 @@ const QuizScreen: React.FC = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton}>
-          <Text style={styles.backButtonText}>←</Text>
+          <Text style={styles.backButtonText}>
+            <ArrowLeft />
+          </Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Topic Name</Text>
         <View style={{width: normalize(24)}} />
