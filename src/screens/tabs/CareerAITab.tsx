@@ -9,8 +9,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
-import {SendHorizontal} from 'lucide-react-native';
+import React, {useState, useEffect} from 'react';
+import {BringToFront, SendHorizontal} from 'lucide-react-native';
 
 interface Message {
   content: string;
@@ -20,10 +20,36 @@ interface Message {
 const CareerAITab = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  const [language, setLanguage] = useState<'english' | 'assamese'>('english');
+
+  // Reset messages when language changes
+  useEffect(() => {
+    setMessages([]);
+  }, [language]);
 
   const append = async ({content, role}: Message) => {
     setMessages(prev => [...prev, {content, role}]);
-    // Implement your chat API logic here
+
+    // If this is a user message, simulate an AI response
+    if (role === 'user') {
+      // Add a small delay to make it feel more natural
+      setTimeout(() => {
+        const aiResponse = {
+          content: getAIResponse(content, language),
+          role: 'assistant' as const,
+        };
+        setMessages(prev => [...prev, aiResponse]);
+      }, 1000);
+    }
+  };
+
+  // Simple function to simulate different AI responses based on language
+  const getAIResponse = (userMessage: string, lang: 'english' | 'assamese') => {
+    if (lang === 'english') {
+      return `ChatGPT: I received your message: "${userMessage}". How can I help you further?`;
+    } else {
+      return `নাভদ্যুত: মই আপোনাৰ বাৰ্তা পালো: "${userMessage}". মই আপোনাক কেনেকৈ সহায় কৰিব পাৰোঁ?`;
+    }
   };
 
   const handleSubmit = () => {
@@ -34,7 +60,42 @@ const CareerAITab = () => {
 
   const Header = () => (
     <View style={styles.header}>
-      <Text style={styles.headerTitle}>Basic AI Chatbot</Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.headerTitle}>
+          Assam Intelligence <BringToFront size={22} color="#D1D4C9" />
+        </Text>
+      </View>
+
+      <View style={styles.languageButtons}>
+        <TouchableOpacity
+          style={[
+            styles.languageButton,
+            language === 'english' && styles.activeLanguageButton,
+          ]}
+          onPress={() => setLanguage('english')}>
+          <Text
+            style={[
+              styles.languageButtonText,
+              language === 'english' && styles.activeLanguageButtonText,
+            ]}>
+            English
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.languageButton,
+            language === 'assamese' && styles.activeLanguageButton,
+          ]}
+          onPress={() => setLanguage('assamese')}>
+          <Text
+            style={[
+              styles.languageButtonText,
+              language === 'assamese' && styles.activeLanguageButtonText,
+            ]}>
+            Assamese
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -70,7 +131,18 @@ const CareerAITab = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardAvoidingView}>
         <View style={styles.contentContainer}>
-          {messages.length ? <MessageList /> : <Header />}
+          {messages.length ? (
+            <>
+              <View style={styles.chatHeader}>
+                <Text style={styles.chatHeaderText}>
+                  {language === 'english' ? 'ChatGPT' : 'নাভদ্যুত (Navdyut)'}
+                </Text>
+              </View>
+              <MessageList />
+            </>
+          ) : (
+            <Header />
+          )}
         </View>
 
         <View style={styles.inputContainer}>
@@ -78,7 +150,9 @@ const CareerAITab = () => {
             style={styles.input}
             value={input}
             onChangeText={setInput}
-            placeholder="Ask related to your course"
+            placeholder={
+              language === 'english' ? 'Ask in English...' : 'অসমীয়াত সোধক...'
+            }
             placeholderTextColor="#E2F1E7"
             multiline
           />
@@ -115,8 +189,56 @@ const styles = StyleSheet.create({
     gap: 20,
     marginTop: 20,
   },
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
   headerTitle: {
     fontSize: 24,
+    fontWeight: '600',
+    color: '#D1D4C9',
+  },
+  languageButtons: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 16,
+  },
+  languageButton: {
+    backgroundColor: '#29435C',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#3b5998',
+  },
+  activeLanguageButton: {
+    backgroundColor: '#3b5998',
+    borderColor: '#5d7cbd',
+  },
+  languageButtonText: {
+    color: '#D1D4C9',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  activeLanguageButtonText: {
+    color: '#ffffff',
+    fontWeight: '600',
+  },
+  aiInfo: {
+    fontSize: 12,
+    color: '#8b9cb0',
+    textAlign: 'center',
+  },
+  chatHeader: {
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#29435C',
+    marginBottom: 8,
+  },
+  chatHeaderText: {
+    fontSize: 16,
     fontWeight: '600',
     color: '#D1D4C9',
   },
@@ -134,6 +256,7 @@ const styles = StyleSheet.create({
   },
   messageContentContainer: {
     gap: 16,
+    paddingBottom: 16,
   },
   messageBase: {
     maxWidth: '80%',

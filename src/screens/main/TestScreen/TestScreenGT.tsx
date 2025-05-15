@@ -10,18 +10,26 @@ import {
 } from 'react-native';
 import {normalize, spacing, fontSizes} from '../../../../utils/dimensions';
 import {ArrowLeft} from 'lucide-react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import RootStackParamList from '../../../navigation/RootStackParamList';
+
+type QuizScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'TestScreenGT'
+>;
 
 const QuizScreen: React.FC = () => {
+  const navigation = useNavigation<QuizScreenNavigationProp>();
   const [selectedOption, setSelectedOption] = useState(
     'Being In A Relationship',
   );
 
-  const options = [
-    'Being Sick',
-    "Telling Someone That You're Listening When You Aren't",
-    'Being In A Relationship',
-    'Being "Five Minutes Away"',
-  ];
+  const options = ['0.5m/s', '5m/s²', '10m/s²', '50m/s²'];
+
+  const handleNavigateToPersonalLab = () => {
+    navigation.navigate('PersonalLab');
+  };
 
   return (
     <SafeAreaView style={styles.testGTcontainer}>
@@ -57,7 +65,8 @@ const QuizScreen: React.FC = () => {
 
       {/* Question */}
       <Text style={styles.question}>
-        What is the worst thing you've ever lied about?
+        A force of 50N is applied to a 10kg object on a frictionless surface.
+        What is its acceleration?
       </Text>
 
       {/* Options */}
@@ -90,8 +99,18 @@ const QuizScreen: React.FC = () => {
         ))}
       </View>
 
-      {/* Continue Button */}
+      {/* Buttons */}
       <View style={styles.buttonContainer}>
+        {/* Interactive Index Button - New Button */}
+        <TouchableOpacity
+          style={styles.interactiveIndexButton}
+          onPress={handleNavigateToPersonalLab}>
+          <Text style={styles.interactiveIndexButtonText}>
+            Interactive Index
+          </Text>
+        </TouchableOpacity>
+
+        {/* Continue Button */}
         <TouchableOpacity style={styles.continueButton}>
           <Text style={styles.continueButtonText}>Continue</Text>
         </TouchableOpacity>
@@ -99,6 +118,7 @@ const QuizScreen: React.FC = () => {
     </SafeAreaView>
   );
 };
+export default QuizScreen;
 
 const styles = StyleSheet.create({
   testGTcontainer: {
@@ -232,6 +252,19 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: '100%',
     paddingBottom: Platform.OS === 'ios' ? spacing.md : spacing.sm,
+    gap: spacing.md,
+  },
+  interactiveIndexButton: {
+    backgroundColor: '#435585',
+    borderRadius: 25,
+    paddingVertical: spacing.md,
+    alignItems: 'center',
+    width: '100%',
+  },
+  interactiveIndexButtonText: {
+    color: 'white',
+    fontSize: fontSizes.md,
+    fontWeight: '500',
   },
   continueButton: {
     backgroundColor: '#1C1427',
@@ -246,5 +279,3 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
-
-export default QuizScreen;

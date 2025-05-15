@@ -13,6 +13,7 @@ import TestScreenGT from '../screens/main/TestScreen/TestScreenGT';
 import TestScreenMT from '../screens/main/TestScreen/TestScreenMT';
 import {useSelector} from 'react-redux';
 import {RootState} from 'redux-store/store';
+import PersonalLabScreen from '../screens/main/Interactive/PersonalLab';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -39,6 +40,7 @@ export default function AppNavigation() {
           <Stack.Screen name="SeeAllMini" component={SeeAllMini} />
           <Stack.Screen name="TestScreenGT" component={TestScreenGT} />
           <Stack.Screen name="TestScreenMT" component={TestScreenMT} />
+          <Stack.Screen name="PersonalLab" component={PersonalLabScreen} />
         </>
       )}
     </Stack.Navigator>

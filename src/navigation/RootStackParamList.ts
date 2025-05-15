@@ -17,6 +17,7 @@ type RootStackParamList = {
     }>;
   };
   TestScreenMT: undefined;
+  PersonalLab: undefined;
 };
 
 export default RootStackParamList;

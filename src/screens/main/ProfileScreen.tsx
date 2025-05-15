@@ -111,6 +111,10 @@ const ProfileScreen: React.FC = () => {
           onPress={() => handleMenuItemPress('Profile switch')}
         />
         <MenuItem
+          title="Buy Tokens"
+          onPress={() => handleMenuItemPress('Buy Tokens')}
+        />
+        <MenuItem
           title="Logout"
           onPress={() => handleMenuItemLogout('Logout')}
         />
